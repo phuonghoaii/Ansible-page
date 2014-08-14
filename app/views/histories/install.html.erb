@@ -1,0 +1,22 @@
+<% provide(:title, "Install") %>
+
+  <div class="row">
+  <div class="span6 offset3">
+    <%= form_for(:session, url: sessions_path) do |f| %>
+      <%= f.label :server %>
+      <select class="form-control">
+      <% Server.all.each do |server| %>
+         <option><%= server.name %><%= ' (ip: ' %><%= server.ip %><%= ')' %></option>
+      <% end %>
+      </select>
+
+      <%= f.label :software %>
+      <select class="form-control">
+      <% Software.all.each do |software| %>
+         <option><%= software.name %><%= ' (version: ' %><%= software.version %><%= ')' %></option>
+      <% end %>
+      </select>
+     <% end %>
+     <button type="button" class="btn btn-info">Install</button>
+  </div>
+  </div>

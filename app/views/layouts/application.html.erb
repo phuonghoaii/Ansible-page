@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Ansible_Tower</title>
+    <%= stylesheet_link_tag "application", media: "all",
+                                           "data-turbolinks-track" => true %>
+    <%= javascript_include_tag "application", "data-turbolinks-track" => true %>
+    <%= csrf_meta_tags %>
+    <!--[if lt IE 9]>
+    <script src="http://html5shim.googlecode.com/svn/trunk/html5.js"></script>
+    <![endif]-->
+  </head>
+  <body>
+    <header class="navbar navbar-fixed-top navbar-inverse">
+      <div class="navbar-inner">
+        <div class="container">
+          <%= link_to "Ansible Tower", root_path, id: "logo" %>
+          <nav>
+            <ul class="nav pull-right">
+              <li><%= link_to "Home", root_path %></li>
+              <li><%= link_to "Help", '#' %></li>
+              <% if signed_in? %>
+                <li id="fat-menu" class="dropdown">
+                  <a href="#" class="dropdown-toggle" data-toggle="dropdown">
+                    Account <b class="caret"></b>
+                  </a>
+                  <ul class="dropdown-menu">
+                    <li><%= link_to "Profile", current_user %></li>
+                    <li class="divider"></li>
+                    <li>
+                      <%= link_to "Sign out", signout_path, method: "delete" %>
+                    </li>
+                  </ul>
+                </li>
+              <% else %>
+                <li><%= link_to "Sign in", signin_path %></li>
+              <% end %>
+            </ul>
+          </nav>
+    </header>
+
+    <div>
+    <ul class="nav nav-tabs">
+    <% if signed_in? %>
+      <li class="active">
+        <a href="http://localhost:3000">HOME</a>
+      </li>
+      <li><%= link_to "SERVER INFO", servers_path %></li>
+      <li><%= link_to "SOFTWARE INFO", softwares_path %></li>
+      <li><a href="/histories/:id/install">YOUR INSTALL</a></li>
+      <li><%= link_to "HISTORY YOUR INSTALL", histories_path %></li>
+      <% end %>
+    </ul>
+    </div>
+     <div class="container">
+      <% flash.each do |key, value| %>
+        <div class="alert alert-<%= key %>"><%= value %></div>
+      <% end %>
+      <%= yield %>
+    </div>
+
+    <footer class="footer">
+      <small> Ansible Tower by Solar_Team</small>
+      <nav>
+        <ul>
+          <li><%= link_to "About", '#' %></li>
+          <li><%= link_to "Contact", '#'%></li>
+        </ul>
+      </nav>
+    </footer>
+
+  </body>
+</html>
