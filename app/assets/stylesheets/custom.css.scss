@@ -7,7 +7,7 @@ html {
 }
 
 body {
-  padding-top: 60px;
+  padding-top: 80px;
   font-size: 20px;
 }
 
@@ -59,7 +59,7 @@ p {
 #logo {
   float: left;
   margin-right: 10px;
-  font-size: 1.7em;
+  font-size: 2em;
   color: #fff;
   letter-spacing: -1px;
   padding-top: 0px;
@@ -152,17 +152,16 @@ input {
 }
 
  .nav > li > a:hover{
-  background-color: #64C5C7;
+  background-color: #0088CC;
 }
 
-
 .nav-tab > li > a:focus{
-  background-color: white;
+  background-color: #0088CC;
 }
 
 .table a:hover,
 .table a:focus{
-  background-color: #64C5C7;
+  background-color: blue;
 }
 a:hover{
   background-color: green;
@@ -170,4 +169,28 @@ a:hover{
 #logo:hover,
 #logo:focus{
   background-color: black;
+}
+.navbar-fixed-top .navbar-inner, .navbar-fixed-bottom .navbar-inner {
+padding-top: 20px;
+}
+
+.container {
+padding-bottom: 30px;
+}
+
+select, textarea, input[type="text"], input[type="password"], input[type="datetime"], input[type="datetime-local"], input[type="date"], input[type="month"], input[type="time"], input[type="week"], input[type="number"], input[type="email"], input[type="url"], input[type="search"], input[type="tel"], input[type="color"], .uneditable-input {
+  border-radius: 20px;
+  font-size: 20px;
+}
+input, textarea, select, .uneditable-input {
+   width: 30%;
+}
+label, input, button, select, textarea {
+ border-radius: 10px;
+ font-size: 25px;
+ margin-top: 20px;
+ margin-left: 240px;
+}
+select, input[type="file"] {
+    height: 40px;
 }
