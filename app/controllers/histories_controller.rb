@@ -13,7 +13,9 @@ class HistoriesController < ApplicationController
   end
 
   def install
-    @histories = History.all
+    # @histories = History.all
+    @all_info[:server] = Server.all
+    @all_info[:software] = Software.all
   end
   # GET /histories/new
   def new

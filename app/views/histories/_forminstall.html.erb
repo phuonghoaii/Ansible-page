@@ -1,20 +1,44 @@
-<form>
- <div class="row">
+<%= form_for(@all_info) do |f| %>
+<% if @server.errors.any? %>
+<div id="error_explanation">
+  <h2><%= pluralize(@server.errors.count, "error") %> prohibited this server from being saved:</h2>
+
+  <ul>
+    <% @server.errors.full_messages.each do |message| %>
+    <li><%= message %></li>
+    <% end %>
+  </ul>
+</div>
+<% end %>
+
+<div class="row">
   <div class="span6 offset3">
+    <div class="field">
+      <%= f.label :server %><br>
 
-      <select class = "span6" onchange='this.form.submit()'>
       <% Server.all.each do |server| %>
-         <option><%= server.name %><%= ' (ip: ' %><%= server.ip %><%= ')' %></option>
+      <label class="checkbox-inline">
+        <input type="checkbox"><%= server.name %><%= ' (ip: ' %><%= server.ip %><%= ')' %>
+      </label>
       <% end %>
-      </select>
 
-      <select class = "span6" onchange='this.form.submit()'>
+    </div>
+  </div>
+  <div class="span6 offset3">
+    <div class="field">
+      <%= f.label :software %><br>
+
       <% Software.all.each do |software| %>
-         <option><%= software.name %><%= ' (version: ' %><%= software.version %><%= ')' %></option>
+      <label class="checkbox-inline">
+        <input type="checkbox"><%= software.name %><%= ' (version: ' %><%= software.version %><%= ')' %>
+      </label>
       <% end %>
-      </select>
 
+
+    </div>
   </div>
-  </div>
-  <input name="submitbutton" type="submit" value="submit" />
-</form>
+</div>
+<% end %>
+
+
+
